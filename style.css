@@ -1,0 +1,14 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+h1{
+    margin: 10px;
+    padding: 10px;
+}
+
+#parent{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
