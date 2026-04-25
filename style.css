@@ -22,7 +22,7 @@ h1 {
 #parent {
     display: grid;
     grid-template-columns: 1fr 2fr;
-     flex: 1;
+    flex: 1;
     gap: 8px;
 }
 
@@ -37,7 +37,6 @@ h1 {
     /* border-right: 10px solid black; */
     background-color: #252535;
 }
-
 
 
 #input {
@@ -63,20 +62,22 @@ h1 {
 .taskscreen {
 
     background-color: #2d2d44;
-    padding: 20px 1px ;
-     display: flex;
+    padding: 20px 1px;
+    display: flex;
     flex-direction: column;
 }
 
-#filter{
+#filter {
     display: flex;
     gap: 15px;
     padding: 5px;
 }
 
-#btn1, #btn2, #btn3{
+#btn1,
+#btn2,
+#btn3 {
 
-     background-color: #f97316;
+    background-color: #f97316;
     color: #e2e8f0;
     padding: 8px 15px;
     border: none;
@@ -84,8 +85,7 @@ h1 {
 
 }
 
-
-#counter{
+#counter {
     background-color: rgb(11, 8, 8);
     font-size: 1.5rem;
     text-align: center;
@@ -95,11 +95,11 @@ h1 {
     color: #f97316;
 }
 
-#clear{
+#clear {
 
     background-color: rgb(209, 3, 3);
     color: white;
-     /* margin: 5px 15px; */
+    /* margin: 5px 15px; */
     padding: 8px 15px;
     border: none;
     border-radius: 5px;
