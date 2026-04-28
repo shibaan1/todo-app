@@ -1,9 +1,10 @@
 const addtask = document.getElementById('addtask')
 const input = document.getElementById('input')
 const tasklist = document.getElementById('tasklist')
-const taskcompleted = document.getElementById("taskcompleted") 
+const taskcompleted = document.getElementById("taskcompleted")
 const totaltask = document.getElementById('totaltask')
 const filter = document.getElementById('filter')
+const clear =  document.getElementById('clear')
 
 
 addtask.addEventListener('click', () => {
@@ -40,11 +41,11 @@ tasklist.addEventListener('click', (e) => {
         e.target.parentElement.parentElement.classList.toggle('done')
         updateCounter()
 
-        if(e.target.parentElement.parentElement.classList.contains('done')){
+        if (e.target.parentElement.parentElement.classList.contains('done')) {
 
             e.target.textContent = 'UNDO'
         }
-        else{
+        else {
             e.target.textContent = "DONE"
         }
 
@@ -56,7 +57,7 @@ tasklist.addEventListener('click', (e) => {
     }
 })
 
-function updateCounter(){
+function updateCounter() {
     let totaltasks = tasklist.querySelectorAll('li').length
     let completedtask = tasklist.querySelectorAll('li.done').length
 
@@ -64,34 +65,40 @@ function updateCounter(){
     totaltask.textContent = totaltasks
 }
 
-filter.addEventListener('click' , (e)=>{
+filter.addEventListener('click', (e) => {
     const filtervalue = e.target.dataset.filter
     const alltask = tasklist.querySelectorAll('li')
 
-    alltask.forEach(li =>{
-        if(filtervalue === 'active'){
-            if(li.classList.contains('done')){
+    alltask.forEach(li => {
+        if (filtervalue === 'active') {
+            if (li.classList.contains('done')) {
                 li.style.display = 'none'
             }
 
-            else{
+            else {
                 li.style.display = 'flex'
             }
 
         }
 
-        if(filtervalue === 'completed'){
-            if(li.classList.contains('done')){
+        if (filtervalue === 'completed') {
+            if (li.classList.contains('done')) {
                 li.style.display = 'flex'
             }
-            else{
+            else {
                 li.style.display = 'none'
             }
         }
 
-        if(filtervalue === 'all'){
+        if (filtervalue === 'all') {
             li.style.display = 'flex'
 
         }
     })
+})
+
+clear.addEventListener('click' , (e)=>{
+
+    tasklist.innerHTML = ''
+    updateCounter()
 })
