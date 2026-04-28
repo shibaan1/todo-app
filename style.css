@@ -129,3 +129,27 @@ h1 {
 #tasklist li.done{
     background-color: rgb(148, 236, 16);
 }
+
+[data-action = 'done']{
+    padding: 4px 4px;
+    color: rgb(0, 47, 255);
+    border-radius: 3px;
+    border: 3px solid black;
+    margin-right: 2px;
+    font-size:1rem;
+    font-weight: 700;
+    background-color: black;
+}
+
+[data-action = 'remove']{
+    padding: 4px 4px;
+    color: rgb(255, 0, 0);
+    border-radius: 3px;
+    margin-right: 2px;
+    margin-left: 2px;
+    border: 3px solid black;
+    font-size:1rem;
+    font-weight: 700;
+background-color: black;
+
+}
