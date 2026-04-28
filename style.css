@@ -97,6 +97,7 @@ h1 {
     padding: 15px;
     border-radius: 10px;
     color: #f97316;
+    margin-bottom: 15px;
 }
 
 #clear {
@@ -112,4 +113,19 @@ h1 {
     align-self: center;
     width: 30%;
 
+}
+
+#tasklist li{
+
+        padding: 10px 8px;
+    margin-bottom: 15px;
+    background-color: #b2b2b8 ;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    color: black;
+}
+
+#tasklist li.done{
+    background-color: rgb(148, 236, 16);
 }
