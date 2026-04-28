@@ -11,7 +11,15 @@ addtask.addEventListener('click' , ()=>{
     }
      else{
         let li = document.createElement('li') 
+        let dbtn = document.createElement('button')
+        let rbtn = document.createElement('button')
+        dbtn.textContent = "done"
+        dbtn.dataset.action = 'done'
+        rbtn.dataset.action = 'remove'
+        rbtn.textContent = 'remove'
         li.textContent = inpval
+        li.appendChild(dbtn)
+        li.appendChild(rbtn)
         tasklist.appendChild(li)
         input.value = ''
         
