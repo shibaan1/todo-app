@@ -25,3 +25,14 @@ addtask.addEventListener('click' , ()=>{
         
      }
 })
+
+tasklist.addEventListener('click' , (e)=>{
+
+    if(e.target.dataset.action === 'done'){
+        e.target.parentElement.classList.add('done')
+    }
+    
+    if(e.target.dataset.action === 'remove'){
+        e.target.parentElement.remove()
+    }
+})
