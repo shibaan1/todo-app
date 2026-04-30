@@ -102,3 +102,17 @@ clear.addEventListener('click' , (e)=>{
     tasklist.innerHTML = ''
     updateCounter()
 })
+
+function saveTasks(){
+    let item = tasklist.querySelectorAll('li')
+   const tasks = Array.from(item)
+    const data = tasks.map(li =>{
+        return{
+            text: li.childNodes[0].textContent,
+            done: li.classList.contains('done')
+            
+        }
+    })
+    const str = JSON.stringify(data)
+    localStorage.setItem('tasks' , str)
+}
