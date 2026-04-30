@@ -31,6 +31,7 @@ addtask.addEventListener('click', () => {
         tasklist.appendChild(li)
         input.value = ''
         updateCounter()
+        saveTasks()
 
     }
 })
@@ -40,6 +41,7 @@ tasklist.addEventListener('click', (e) => {
     if (e.target.dataset.action === 'done') {
         e.target.parentElement.parentElement.classList.toggle('done')
         updateCounter()
+        saveTasks()
 
         if (e.target.parentElement.parentElement.classList.contains('done')) {
 
@@ -54,6 +56,7 @@ tasklist.addEventListener('click', (e) => {
     if (e.target.dataset.action === 'remove') {
         e.target.parentElement.parentElement.remove()
         updateCounter()
+        saveTasks()
     }
 })
 
@@ -101,6 +104,7 @@ clear.addEventListener('click' , (e)=>{
 
     tasklist.innerHTML = ''
     updateCounter()
+    saveTasks()
 })
 
 function saveTasks(){
@@ -116,3 +120,33 @@ function saveTasks(){
     const str = JSON.stringify(data)
     localStorage.setItem('tasks' , str)
 }
+
+function loadTasks(){
+const stored = localStorage.getItem('tasks')
+const tasks = JSON.parse(stored)
+ if(!tasks) return
+
+tasks.forEach(task=>{
+     let li = document.createElement('li')
+        let dbtn = document.createElement('button')
+        let rbtn = document.createElement('button')
+         dbtn.textContent = "DONE"
+        dbtn.dataset.action = 'done'
+        rbtn.dataset.action = 'remove'
+        rbtn.textContent = 'REMOVE'
+         const btnWrapper = document.createElement('div')
+         const taskText = document.createTextNode(task.text)
+         btnWrapper.appendChild(dbtn)
+         btnWrapper.appendChild(rbtn)
+         li.appendChild(taskText)
+         li.appendChild(btnWrapper)
+         tasklist.appendChild(li)
+
+         if(task.done){
+            li.classList.add('done')
+            dbtn.textContent = 'UNDO'
+         }
+})
+ updateCounter()       
+}
+loadTasks()
